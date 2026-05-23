@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actionable Intel — Voter Intelligence for Issue Campaigns</title>
+  <title>Actionable Intel — Voter intelligence, built on defensible methodology</title>
   <style>
     :root {
       --teal:       #0D7B6E;
@@ -46,152 +46,190 @@
       margin-left: 0.35em;
       clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
     }
-    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
     .nav-links a {
       color: var(--muted); text-decoration: none;
       font-size: 0.875rem; font-weight: 500;
       transition: color 0.15s;
     }
     .nav-links a:hover { color: var(--teal); }
-    .nav-cta {
-      background: var(--teal); color: var(--white) !important;
-      padding: 0.45em 1em; border-radius: 5px;
-      font-weight: 600 !important;
+    .nav-portal {
+      font-size: 0.8rem !important;
+      color: var(--muted) !important;
+      opacity: 0.7;
     }
-    .nav-cta:hover { background: var(--teal-dark); color: var(--white) !important; }
+    .nav-portal:hover { opacity: 1; color: var(--teal) !important; }
 
     /* ── Hero ─────────────────────────────────────────────────────── */
     .hero {
       background: var(--teal-dark);
       color: var(--white);
       padding: 6rem 2rem 5rem;
-      text-align: center;
     }
+    .hero-inner { max-width: 880px; margin: 0 auto; }
     .hero-eyebrow {
       font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(255,255,255,0.6);
-      margin-bottom: 1.25rem;
+      text-transform: uppercase; color: rgba(255,255,255,0.55);
+      margin-bottom: 1.5rem;
     }
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      font-weight: 800; line-height: 1.15;
-      letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 1.5rem;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800; line-height: 1.2;
+      letter-spacing: -0.02em; margin: 0 0 1.5rem;
+      max-width: 760px;
     }
-    .hero h1 em { font-style: normal; color: rgba(255,255,255,0.65); }
-    .hero p {
-      font-size: 1.1rem; color: rgba(255,255,255,0.75);
-      max-width: 580px; margin: 0 auto 2.5rem;
+    .hero h1 em { font-style: normal; color: rgba(255,255,255,0.6); }
+    .hero p.lede {
+      font-size: 1.1rem; color: rgba(255,255,255,0.78);
+      max-width: 640px; margin: 0 0 2.5rem;
     }
-    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn-primary {
-      display: inline-block; padding: 0.75rem 1.75rem;
+      display: inline-block; padding: 0.8rem 1.75rem;
       background: var(--white); color: var(--teal-dark);
       font-weight: 700; font-size: 0.9rem; border-radius: 6px;
       text-decoration: none; transition: opacity 0.15s;
     }
-    .btn-primary:hover { opacity: 0.9; }
+    .btn-primary:hover { opacity: 0.92; }
     .btn-secondary {
-      display: inline-block; padding: 0.75rem 1.75rem;
-      border: 1.5px solid rgba(255,255,255,0.4); color: var(--white);
+      display: inline-block; padding: 0.8rem 1.75rem;
+      border: 1.5px solid rgba(255,255,255,0.35); color: var(--white);
       font-weight: 600; font-size: 0.9rem; border-radius: 6px;
       text-decoration: none; transition: border-color 0.15s;
     }
-    .btn-secondary:hover { border-color: rgba(255,255,255,0.8); }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.85); }
 
     /* ── Shared layout ────────────────────────────────────────────── */
     section { padding: 5rem 2rem; }
-    .container { max-width: 960px; margin: 0 auto; }
+    .container { max-width: 880px; margin: 0 auto; }
     .section-label {
       font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase; color: var(--teal);
       margin-bottom: 0.75rem;
     }
     .section-title {
-      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
       font-weight: 800; letter-spacing: -0.02em;
-      margin-bottom: 0.75rem; color: var(--text);
+      margin-bottom: 1rem; color: var(--text);
     }
     .section-sub {
       font-size: 1rem; color: var(--muted);
-      max-width: 600px; margin-bottom: 3rem;
+      max-width: 640px; margin-bottom: 3rem;
     }
 
-    /* ── What we do ───────────────────────────────────────────────── */
-    .what { background: var(--off-white); }
-    .pillars {
+    /* ── Capabilities ─────────────────────────────────────────────── */
+    .capabilities { background: var(--off-white); }
+    .cap-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
-    .pillar {
+    .cap {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 1.75rem;
+      padding: 1.5rem 1.75rem;
     }
-    .pillar-icon {
-      width: 40px; height: 40px;
-      background: var(--teal-light);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+    .cap h3 {
+      font-size: 0.95rem; font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text);
     }
-    .pillar h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .pillar p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
+    .cap p {
+      font-size: 0.875rem; color: var(--muted); line-height: 1.6;
+    }
 
-    /* ── How it works ─────────────────────────────────────────────── */
-    .steps {
+    /* ── Methodology ──────────────────────────────────────────────── */
+    .method {
+      background: var(--white);
+    }
+    .method-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0;
-      counter-reset: step;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
     }
-    .step {
-      padding: 2rem 1.75rem;
-      border-left: 1px solid var(--border);
-      position: relative;
-      counter-increment: step;
+    .method-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
     }
-    .step:first-child { border-left: none; }
-    .step::before {
-      content: counter(step);
-      display: block;
-      font-size: 2rem; font-weight: 900;
-      color: var(--teal); opacity: 0.2;
-      line-height: 1;
-      margin-bottom: 0.75rem;
+    .method-item:first-child { border-top: none; padding-top: 0; }
+    .method-key {
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.02em;
     }
-    .step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
-    .step p { font-size: 0.85rem; color: var(--muted); }
+    .method-body {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .method-body strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 720px) {
+      .method-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    }
 
-    /* ── Portal CTA ───────────────────────────────────────────────── */
-    .portal-cta {
+    /* ── Engagements ──────────────────────────────────────────────── */
+    .engagements { background: var(--off-white); }
+    .eng-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .eng {
+      background: var(--white);
+      border-left: 3px solid var(--teal);
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .eng strong {
+      display: block;
+      font-weight: 700;
+      color: var(--teal-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    /* ── Contact ──────────────────────────────────────────────────── */
+    .contact {
       background: var(--teal);
       color: var(--white);
-      text-align: center;
-      padding: 4.5rem 2rem;
+      padding: 5rem 2rem;
     }
-    .portal-cta .section-label { color: rgba(255,255,255,0.6); }
-    .portal-cta .section-title { color: var(--white); margin-bottom: 0.75rem; }
-    .portal-cta p { color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 2rem; font-size: 1rem; }
+    .contact .section-label { color: rgba(255,255,255,0.6); }
+    .contact .section-title { color: var(--white); margin-bottom: 1rem; }
+    .contact p { color: rgba(255,255,255,0.82); max-width: 560px; font-size: 1rem; margin-bottom: 2rem; }
+    .contact-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-email {
+      display: inline-block; padding: 0.8rem 1.75rem;
+      background: var(--white); color: var(--teal-dark);
+      font-weight: 700; font-size: 0.95rem; border-radius: 6px;
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .contact-email:hover { opacity: 0.92; }
 
     /* ── Footer ───────────────────────────────────────────────────── */
     footer {
       background: var(--text);
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.55);
       padding: 2.5rem 2rem;
       font-size: 0.8rem;
     }
     .footer-inner {
-      max-width: 960px; margin: 0 auto;
+      max-width: 880px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 1rem;
     }
-    .footer-logo { color: var(--white); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .footer-logo {
+      color: var(--white); font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
     .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
-    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+    .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    .footer-links a:hover { color: rgba(255,255,255,0.9); }
   </style>
 </head>
 <body>
@@ -203,88 +241,138 @@
     <span class="logo-slash">Intel</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#what-we-do">What we do</a></li>
-    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#engagements">Engagements</a></li>
     <li><a href="mailto:pres@actionableintel.org">Contact</a></li>
-    <li><a href="https://actint-portal-production.up.railway.app/login" class="nav-cta">Partner login →</a></li>
+    <li><a href="https://actint-portal-production.up.railway.app/login" class="nav-portal">Partner login</a></li>
   </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-  <p class="hero-eyebrow">Voter Intelligence Platform</p>
-  <h1>Survey data that tells you <em>who moves</em>,<br>not just who agrees.</h1>
-  <p>Actionable Intel runs a Bayesian MrP pipeline on issue-advocacy surveys to produce district-level voter intelligence for Democratic campaigns and their allies.</p>
-  <div class="hero-actions">
-    <a href="https://actint-portal-production.up.railway.app/login" class="btn-primary">Partner portal</a>
-    <a href="mailto:pres@actionableintel.org" class="btn-secondary">Get in touch</a>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Actionable Intel LLC</p>
+    <h1>Voter intelligence that holds up <em>under serious scrutiny.</em></h1>
+    <p class="lede">We design, field, and analyze issue-advocacy surveys for political campaigns, advocacy organizations, and foundations — using Bayesian multilevel modeling with the methodological discipline that lets every number we publish defend itself in any room.</p>
+    <div class="hero-actions">
+      <a href="mailto:pres@actionableintel.org" class="btn-primary">Get in touch</a>
+      <a href="#methodology" class="btn-secondary">How we work →</a>
+    </div>
   </div>
 </section>
 
-<!-- What we do -->
-<section class="what" id="what-we-do">
+<!-- Capabilities -->
+<section class="capabilities" id="capabilities">
   <div class="container">
     <p class="section-label">Capabilities</p>
-    <h2 class="section-title">From fielded survey to targeted ad buy</h2>
-    <p class="section-sub">One integrated stack — survey intelligence, voter modeling, and media activation.</p>
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-icon">📊</div>
-        <h3>Bayesian MrP modeling</h3>
-        <p>Multi-level regression with poststratification anchors raw survey responses to district-level ACS population targets. Every estimate ships with 95% credible intervals.</p>
+    <h2 class="section-title">What we do</h2>
+    <p class="section-sub">Survey design through media activation, as one integrated practice — or any single piece, scoped to the engagement.</p>
+    <div class="cap-list">
+      <div class="cap">
+        <h3>Issue-advocacy survey design</h3>
+        <p>Research design, instrument development, sample-frame specification, and field execution through validated panel partners.</p>
       </div>
-      <div class="pillar">
-        <div class="pillar-icon">🗳️</div>
+      <div class="cap">
+        <h3>District-level MrP modeling</h3>
+        <p>Bayesian multilevel regression with poststratification to ACS targets. Geography down to congressional or state-legislative district with calibrated uncertainty.</p>
+      </div>
+      <div class="cap">
         <h3>Voter Intelligence Profiles</h3>
-        <p>VIP scores classify respondents into persuasion archetypes — Committed, Reform-Ready, Pragmatists, Skeptics — grounded in behavioral indicators, not self-reported identity.</p>
+        <p>Behaviorally-grounded persuasion archetypes derived from survey response patterns — not self-reported identity or partisan proxy.</p>
       </div>
-      <div class="pillar">
-        <div class="pillar-icon">🎯</div>
-        <h3>Media activation</h3>
-        <p>VIP segment data converts directly into platform-native targeting parameters for Meta, X Ads, and StackAdapt — no voter file required for the issue-advocacy path.</p>
+      <div class="cap">
+        <h3>Media activation briefs</h3>
+        <p>Audience definitions translated into platform-native targeting parameters for paid social, programmatic, and connected TV.</p>
       </div>
-      <div class="pillar">
-        <div class="pillar-icon">✍️</div>
-        <h3>MediaMaker</h3>
-        <p>AI script generation grounded in your survey data. Every output cites the numbers from the field — support percentages, persuasion gaps, segment findings — never invented statistics.</p>
+      <div class="cap">
+        <h3>Bespoke analytical work</h3>
+        <p>Custom modeling for funders evaluating program effect, legislative campaigns testing message frames, and organizations sizing their persuasion universe.</p>
+      </div>
+      <div class="cap">
+        <h3>Standing partner portal</h3>
+        <p>Recurring clients receive their results through a secure portal — toplines, regression findings, audience builders, and exportable briefs.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- How it works -->
-<section id="how-it-works">
+<!-- Methodology -->
+<section class="method" id="methodology">
   <div class="container">
-    <p class="section-label">Process</p>
-    <h2 class="section-title">Field to decision in days, not weeks</h2>
-    <p class="section-sub">The pipeline runs automatically. Partners see results in the portal as soon as the fit completes.</p>
-    <div class="steps">
-      <div class="step">
-        <h3>Survey fields</h3>
-        <p>Issue-advocacy questions deployed via Alchemer to a representative sample in the target state or district.</p>
+    <p class="section-label">Methodology</p>
+    <h2 class="section-title">How we work</h2>
+    <p class="section-sub">The discipline is the differentiator. Every choice below is codified in the pipeline, not aspirational.</p>
+    <div class="method-grid">
+      <div class="method-item">
+        <div class="method-key">Bayesian MrP, properly executed</div>
+        <div class="method-body">Four-chain NUTS sampling with convergence diagnostics on every fit. ACS poststratification to the target geography. Every estimate ships with a <strong>95% credible interval</strong> — point estimates without uncertainty are not delivered.</div>
       </div>
-      <div class="step">
-        <h3>Engine fits</h3>
-        <p>The VIP engine runs 4-chain NUTS sampling, raking to ACS margins, and per-segment MrP — producing MrP-adjusted support estimates for every question.</p>
+      <div class="method-item">
+        <div class="method-key">Honest minimums</div>
+        <div class="method-body">No subgroup claim ships below <strong>N=100</strong>. The Pew minimum is the floor regardless of who is reading. Unreliable data is unreliable, and we say so rather than smooth it over.</div>
       </div>
-      <div class="step">
-        <h3>Portal delivers</h3>
-        <p>Partners log into the ActInt portal to review topline MrP results, regression findings, and audience breakdowns with credible intervals.</p>
+      <div class="method-item">
+        <div class="method-key">Correlation language</div>
+        <div class="method-body">Cross-sectional surveys support association, not causation. We do not write &ldquo;moves,&rdquo; &ldquo;drives,&rdquo; or &ldquo;causes&rdquo; about message-pair data — the rule is enforced in the renderer, not just the style guide.</div>
       </div>
-      <div class="step">
-        <h3>Campaign activates</h3>
-        <p>VIP segments export as targeting briefs. MediaMaker turns survey evidence into draft scripts. Media buyer executes directly from the data.</p>
+      <div class="method-item">
+        <div class="method-key">Standing data-integrity invariants</div>
+        <div class="method-body">Every silent-data bug we have ever caught is now a permanent automated check. The pipeline cannot ship results that violate any prior invariant — pagination, provenance, vocabulary, minimum-N, ESS gates — and the check runs on every fit.</div>
+      </div>
+      <div class="method-item">
+        <div class="method-key">Provenance on every number</div>
+        <div class="method-body">Every percentage on every deliverable declares whether it is MrP-adjusted or raw. The labeling is checked automatically. When sources mix on the same surface, each value is labeled distinctly so a reader cannot conflate them.</div>
+      </div>
+      <div class="method-item">
+        <div class="method-key">Honest absence</div>
+        <div class="method-body">When the data does not support a claim, the deliverable says so. Empty cells with explanation are preferable to filled cells with false confidence. Validator-rejected output is fixed at the producer, not graceful-degraded to boilerplate.</div>
+      </div>
+      <div class="method-item">
+        <div class="method-key">Two-voice review</div>
+        <div class="method-body">Every methodology decision passes a <strong>quantitative review</strong> (does the statistics hold?) and a <strong>practical-engineering review</strong> (does the pipeline implement it correctly?) before it reaches a client surface. No solo calls on data discipline.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Portal CTA -->
-<section class="portal-cta">
-  <p class="section-label">Partner access</p>
-  <h2 class="section-title">Your survey intelligence is ready</h2>
-  <p>Log into the ActInt partner portal to review your MrP results, build media segments, and generate messaging scripts.</p>
-  <a href="https://actint-portal-production.up.railway.app/login" class="btn-primary">Sign in to the portal →</a>
+<!-- Engagements -->
+<section class="engagements" id="engagements">
+  <div class="container">
+    <p class="section-label">Engagements</p>
+    <h2 class="section-title">Who we work with</h2>
+    <p class="section-sub">Long-running partnerships and one-off engagements. Bespoke scope; methodology and standards do not vary by client.</p>
+    <div class="eng-list">
+      <div class="eng">
+        <strong>Issue-advocacy organizations</strong>
+        501(c)(3) and 501(c)(4) groups testing message frames, sizing persuasion universes, and prioritizing audiences.
+      </div>
+      <div class="eng">
+        <strong>Political campaigns</strong>
+        Democratic primary and general-election campaigns needing district-level voter intelligence beyond what a topline poll provides.
+      </div>
+      <div class="eng">
+        <strong>Foundations and major donors</strong>
+        Funders evaluating grantee program effect, comparing strategies across portfolios, and stress-testing assumptions before re-up decisions.
+      </div>
+      <div class="eng">
+        <strong>Legislative and corporate campaigns</strong>
+        Targeted research where the audience is a defined district or constituency and the question is which message and which voters.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label">Work with us</p>
+    <h2 class="section-title">Tell us what you&rsquo;re trying to learn.</h2>
+    <p>New engagements start with a scoping conversation — what question, what geography, what timeline, what decision rides on the answer. Direct email reaches the principal.</p>
+    <div class="contact-actions">
+      <a href="mailto:pres@actionableintel.org" class="contact-email">pres@actionableintel.org</a>
+    </div>
+  </div>
 </section>
 
 <!-- Footer -->
@@ -293,6 +381,7 @@
     <span class="footer-logo">Actionable Intel LLC</span>
     <nav class="footer-links">
       <a href="mailto:pres@actionableintel.org">Contact</a>
+      <a href="https://actint-portal-production.up.railway.app/login">Partner login</a>
       <a href="/actionable-intel-site/privacy.html">Privacy</a>
     </nav>
   </div>
