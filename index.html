@@ -1,390 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Second Look Alliance — Public Safety Starts with Public Trust</title>
-    <style>
-        :root {
-            --navy: #1B2A4A;
-            --gold: #C4A34D;
-            --gold-light: rgba(196,163,77,0.12);
-            --white: #FFFFFF;
-            --cream: #F7F5F0;
-            --text: #1a1a1a;
-            --text-muted: #5a5a5a;
-            --radius: 8px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            color: var(--text);
-            line-height: 1.7;
-            background: var(--white);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actionable Intel — Voter Intelligence for Issue Campaigns</title>
+  <style>
+    :root {
+      --teal:       #0D7B6E;
+      --teal-dark:  #0A5E54;
+      --teal-light: rgba(13,123,110,0.08);
+      --white:      #FFFFFF;
+      --off-white:  #F5F7F7;
+      --text:       #111827;
+      --muted:      #4B5563;
+      --border:     #E5E7EB;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      line-height: 1.65;
+      background: var(--white);
+    }
 
-        /* Nav */
-        nav {
-            position: sticky; top: 0; z-index: 100;
-            background: var(--navy);
-            padding: 0 2rem;
-            display: flex; align-items: center; justify-content: space-between;
-            height: 64px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        .nav-logo {
-            font-size: 1.15rem; font-weight: 700; color: var(--white);
-            text-decoration: none; letter-spacing: -0.02em;
-        }
-        .nav-logo span { color: var(--gold); }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-links a {
-            color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem;
-            font-weight: 500; transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--gold); }
-        .nav-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+    /* ── Nav ──────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 0;
+      text-decoration: none;
+      font-size: 1.05rem; font-weight: 800;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .logo-word { color: var(--teal); }
+    .logo-slash {
+      color: var(--white); background: var(--teal);
+      padding: 0.15em 0.55em 0.15em 0.45em;
+      margin-left: 0.35em;
+      clip-path: polygon(8% 0%, 100% 0%, 92% 100%, 0% 100%);
+    }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--teal); color: var(--white) !important;
+      padding: 0.45em 1em; border-radius: 5px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--teal-dark); color: var(--white) !important; }
 
-        /* Sections */
-        section { padding: 5rem 2rem; }
-        .container { max-width: 960px; margin: 0 auto; }
-        .section-title {
-            font-size: 1.8rem; font-weight: 700; color: var(--navy);
-            margin-bottom: 0.5rem;
-        }
-        .section-subtitle {
-            font-size: 1.05rem; color: var(--text-muted); font-style: italic;
-            margin-bottom: 2rem; max-width: 720px;
-        }
-        p + p { margin-top: 1rem; }
+    /* ── Hero ─────────────────────────────────────────────────────── */
+    .hero {
+      background: var(--teal-dark);
+      color: var(--white);
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.02em; max-width: 760px; margin: 0 auto 1.5rem;
+    }
+    .hero h1 em { font-style: normal; color: rgba(255,255,255,0.65); }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.75);
+      max-width: 580px; margin: 0 auto 2.5rem;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; padding: 0.75rem 1.75rem;
+      background: var(--white); color: var(--teal-dark);
+      font-weight: 700; font-size: 0.9rem; border-radius: 6px;
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary {
+      display: inline-block; padding: 0.75rem 1.75rem;
+      border: 1.5px solid rgba(255,255,255,0.4); color: var(--white);
+      font-weight: 600; font-size: 0.9rem; border-radius: 6px;
+      text-decoration: none; transition: border-color 0.15s;
+    }
+    .btn-secondary:hover { border-color: rgba(255,255,255,0.8); }
 
-        /* Hero */
-        .hero {
-            background: var(--navy);
-            color: var(--white);
-            padding: 6rem 2rem 5rem;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 2.6rem; font-weight: 800; margin-bottom: 1.5rem;
-            letter-spacing: -0.03em; line-height: 1.2;
-        }
-        .hero h1 span { color: var(--gold); }
-        .hero p {
-            max-width: 680px; margin: 0 auto 1rem; font-size: 1.05rem;
-            color: rgba(255,255,255,0.85); line-height: 1.8;
-        }
-        .hero-cta {
-            display: inline-block; margin-top: 2rem;
-            padding: 0.8rem 2rem; border: 2px solid var(--gold);
-            color: var(--gold); text-decoration: none; font-weight: 600;
-            font-size: 0.95rem; border-radius: var(--radius);
-            transition: all 0.2s;
-        }
-        .hero-cta:hover { background: var(--gold); color: var(--navy); }
+    /* ── Shared layout ────────────────────────────────────────────── */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 800; letter-spacing: -0.02em;
+      margin-bottom: 0.75rem; color: var(--text);
+    }
+    .section-sub {
+      font-size: 1rem; color: var(--muted);
+      max-width: 600px; margin-bottom: 3rem;
+    }
 
-        /* Alternating backgrounds */
-        .bg-cream { background: var(--cream); }
+    /* ── What we do ───────────────────────────────────────────────── */
+    .what { background: var(--off-white); }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
+    }
+    .pillar {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+    }
+    .pillar-icon {
+      width: 40px; height: 40px;
+      background: var(--teal-light);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .pillar h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .pillar p { font-size: 0.875rem; color: var(--muted); line-height: 1.55; }
 
-        /* Sub-headings */
-        h3 {
-            font-size: 1.2rem; font-weight: 700; color: var(--navy);
-            margin: 2rem 0 0.75rem;
-        }
+    /* ── How it works ─────────────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      counter-reset: step;
+    }
+    .step {
+      padding: 2rem 1.75rem;
+      border-left: 1px solid var(--border);
+      position: relative;
+      counter-increment: step;
+    }
+    .step:first-child { border-left: none; }
+    .step::before {
+      content: counter(step);
+      display: block;
+      font-size: 2rem; font-weight: 900;
+      color: var(--teal); opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+    .step h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .step p { font-size: 0.85rem; color: var(--muted); }
 
-        /* Cards grid */
-        .card-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem; margin: 1.5rem 0;
-        }
-        .card {
-            background: var(--white); border-radius: var(--radius);
-            padding: 1.5rem; border: 1px solid rgba(0,0,0,0.08);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-        }
-        .card h4 { font-size: 0.95rem; color: var(--navy); margin-bottom: 0.5rem; }
-        .card p { font-size: 0.9rem; color: var(--text-muted); }
-        .bg-cream .card { background: var(--white); }
+    /* ── Portal CTA ───────────────────────────────────────────────── */
+    .portal-cta {
+      background: var(--teal);
+      color: var(--white);
+      text-align: center;
+      padding: 4.5rem 2rem;
+    }
+    .portal-cta .section-label { color: rgba(255,255,255,0.6); }
+    .portal-cta .section-title { color: var(--white); margin-bottom: 0.75rem; }
+    .portal-cta p { color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 2rem; font-size: 1rem; }
 
-        /* Stat cards */
-        .stat-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.25rem; margin: 2rem 0;
-        }
-        .stat-card {
-            text-align: center; padding: 2rem 1rem;
-            background: var(--white); border-radius: var(--radius);
-            border: 1px solid rgba(0,0,0,0.08);
-        }
-        .stat-value {
-            font-size: 2.8rem; font-weight: 800; color: var(--gold);
-            line-height: 1;
-        }
-        .stat-label {
-            font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;
-        }
-
-        /* Callout / blockquote */
-        .callout {
-            border-left: 4px solid var(--gold); background: var(--gold-light);
-            padding: 1.25rem 1.5rem; border-radius: 0 var(--radius) var(--radius) 0;
-            margin: 1.5rem 0; font-size: 0.95rem;
-        }
-        .callout strong { color: var(--navy); }
-
-        /* Key finding */
-        .key-finding {
-            border-left: 4px solid var(--navy); background: rgba(27,42,74,0.05);
-            padding: 1.25rem 1.5rem; border-radius: 0 var(--radius) var(--radius) 0;
-            margin: 1.5rem 0; font-size: 0.95rem; font-weight: 500;
-        }
-
-        /* State tags */
-        .state-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
-        .state-tag {
-            padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem;
-            font-weight: 600; background: var(--navy); color: var(--white);
-        }
-
-        /* Findings sub-sections */
-        .finding-block { margin-bottom: 3rem; }
-        .finding-block h3 { border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; }
-
-        /* Contact */
-        .contact-section { background: var(--navy); color: var(--white); text-align: center; }
-        .contact-section .section-title { color: var(--white); }
-        .contact-section .section-subtitle { color: rgba(255,255,255,0.7); }
-        .contact-section p { color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
-        .contact-section p + p { margin-top: 1rem; }
-        .contact-link {
-            display: inline-block; margin-top: 2rem;
-            padding: 0.8rem 2.5rem; background: var(--gold); color: var(--navy);
-            text-decoration: none; font-weight: 700; border-radius: var(--radius);
-            font-size: 1rem; transition: opacity 0.2s;
-        }
-        .contact-link:hover { opacity: 0.9; }
-
-        /* Footer */
-        footer {
-            background: #111; color: rgba(255,255,255,0.5); text-align: center;
-            padding: 2rem; font-size: 0.8rem;
-        }
-        footer a { color: var(--gold); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            section { padding: 3rem 1.25rem; }
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--navy); padding: 1rem 2rem; gap: 1rem; }
-            .nav-links.open { display: flex; }
-            .nav-toggle { display: block; }
-            .stat-value { font-size: 2rem; }
-        }
-    </style>
+    /* ── Footer ───────────────────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.5);
+      padding: 2.5rem 2rem;
+      font-size: 0.8rem;
+    }
+    .footer-inner {
+      max-width: 960px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { color: var(--white); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-links a:hover { color: rgba(255,255,255,0.85); }
+  </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- Nav -->
 <nav>
-    <a href="#" class="nav-logo">Second Look <span>Alliance</span></a>
-    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#states">States</a></li>
-        <li><a href="#partners">Partners</a></li>
-        <li><a href="#findings">Findings</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+  <a href="/" class="logo">
+    <span class="logo-word">Actionable</span>
+    <span class="logo-slash">Intel</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#what-we-do">What we do</a></li>
+    <li><a href="#how-it-works">How it works</a></li>
+    <li><a href="mailto:pres@actionableintel.org">Contact</a></li>
+    <li><a href="https://actint-portal-production.up.railway.app/login" class="nav-cta">Partner login →</a></li>
+  </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-    <div class="container">
-        <h1>Public Safety Starts with <span>Public Trust</span></h1>
-        <p>Second Look Alliance is a nonpartisan research initiative dedicated to understanding what Americans truly believe about justice, accountability, and the possibility of change.</p>
-        <p>We survey residents across the country &mdash; Democrats, Republicans, and independents alike &mdash; on some of the most consequential questions in criminal justice: Who deserves a second chance? When do circumstances matter? What does a fair sentence look like? And does our system live up to the promise of equal justice under the law?</p>
-        <p>We do not advocate for a predetermined outcome. We follow the data. And what the data consistently shows is that public opinion on criminal justice is more nuanced, more compassionate, and more cross-partisan than conventional wisdom suggests.</p>
-        <a href="#about" class="hero-cta">Learn About Our Research</a>
-    </div>
+  <p class="hero-eyebrow">Voter Intelligence Platform</p>
+  <h1>Survey data that tells you <em>who moves</em>,<br>not just who agrees.</h1>
+  <p>Actionable Intel runs a Bayesian MrP pipeline on issue-advocacy surveys to produce district-level voter intelligence for Democratic campaigns and their allies.</p>
+  <div class="hero-actions">
+    <a href="https://actint-portal-production.up.railway.app/login" class="btn-primary">Partner portal</a>
+    <a href="mailto:pres@actionableintel.org" class="btn-secondary">Get in touch</a>
+  </div>
 </section>
 
-<!-- About -->
-<section id="about">
-    <div class="container">
-        <h2 class="section-title">What We Do</h2>
-        <p class="section-subtitle">Second Look Alliance conducts rigorous, population-representative public opinion research on criminal justice &mdash; and makes those findings available to the organizations working to improve public safety.</p>
-
-        <p>Our research is built on a straightforward premise: policy that reflects what the public actually believes is more durable than policy that runs ahead of or behind it. That means listening carefully, measuring accurately, and reporting honestly &mdash; even when the findings are complicated.</p>
-
-        <h3>Our Research Approach</h3>
-        <p>We use a combination of online surveys and advanced statistical modeling &mdash; including Multilevel Regression and Poststratification (MrP) &mdash; to produce population-level estimates that hold up to scrutiny. Our methodology allows us to examine public opinion at the state level with a level of precision that traditional polling rarely achieves.</p>
-        <p>Every survey we field is designed to get past the surface. We avoid leading questions and social-desirability framing. We test multiple ways of asking about the same issue so we can understand not just what people support, but why &mdash; and how stable that support is under different conditions.</p>
-
-        <h3>What We Measure</h3>
-        <div class="card-grid">
-            <div class="card">
-                <h4>Second Chances</h4>
-                <p>The possibility of redemption and the conditions under which the public supports sentence review and reentry.</p>
-            </div>
-            <div class="card">
-                <h4>Circumstances of Crime</h4>
-                <p>Domestic violence, trafficking, and coercion &mdash; when the context of a crime should shape how it is judged.</p>
-            </div>
-            <div class="card">
-                <h4>Access to Justice</h4>
-                <p>Socioeconomic disparity in legal representation and the public&rsquo;s view of economic fairness in the courts.</p>
-            </div>
-            <div class="card">
-                <h4>Proportional Punishment</h4>
-                <p>Judicial discretion, mandatory minimums, and whether sentences fit the crime and the individual.</p>
-            </div>
-        </div>
-        <p>Across each of these areas, we look beyond simple approval ratings to understand the depth, durability, and cross-partisan reach of public support &mdash; giving our partners the information they need to work effectively and sustainably.</p>
+<!-- What we do -->
+<section class="what" id="what-we-do">
+  <div class="container">
+    <p class="section-label">Capabilities</p>
+    <h2 class="section-title">From fielded survey to targeted ad buy</h2>
+    <p class="section-sub">One integrated stack — survey intelligence, voter modeling, and media activation.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <h3>Bayesian MrP modeling</h3>
+        <p>Multi-level regression with poststratification anchors raw survey responses to district-level ACS population targets. Every estimate ships with 95% credible intervals.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🗳️</div>
+        <h3>Voter Intelligence Profiles</h3>
+        <p>VIP scores classify respondents into persuasion archetypes — Committed, Reform-Ready, Pragmatists, Skeptics — grounded in behavioral indicators, not self-reported identity.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🎯</div>
+        <h3>Media activation</h3>
+        <p>VIP segment data converts directly into platform-native targeting parameters for Meta, X Ads, and StackAdapt — no voter file required for the issue-advocacy path.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">✍️</div>
+        <h3>MediaMaker</h3>
+        <p>AI script generation grounded in your survey data. Every output cites the numbers from the field — support percentages, persuasion gaps, segment findings — never invented statistics.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- States -->
-<section id="states" class="bg-cream">
-    <div class="container">
-        <h2 class="section-title">Where We Work</h2>
-        <p class="section-subtitle">Second Look Alliance is currently active in six states, with an expanding national footprint.</p>
-
-        <div class="stat-grid">
-            <div class="stat-card">
-                <div class="stat-value">6</div>
-                <div class="stat-label">States with active survey research</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-value">5,500+</div>
-                <div class="stat-label">Residents surveyed and counted</div>
-            </div>
-        </div>
-
-        <div class="state-tags">
-            <span class="state-tag">Louisiana</span>
-            <span class="state-tag">Oklahoma</span>
-            <span class="state-tag">North Carolina</span>
-            <span class="state-tag">Virginia</span>
-            <span class="state-tag">Massachusetts</span>
-            <span class="state-tag">New Jersey</span>
-        </div>
-
-        <p>These states represent a broad cross-section of American political geography &mdash; from the Deep South to the Northeast &mdash; and allow us to examine how criminal justice attitudes vary by region, demographics, and political culture.</p>
-        <p>Each state-level study produces both a snapshot of current opinion and trend data as surveys are repeated over time. We are building the long-term dataset that advocates, policymakers, and funders need to make durable progress.</p>
-
-        <h3>Where We&rsquo;re Headed</h3>
-        <p>Second Look Alliance is actively expanding. Our goal is to field research in every state where criminal justice reform is a live policy question &mdash; which is to say, most of them. We prioritize states where credible public opinion data is scarce and where partner organizations are working on the ground without the research infrastructure they need.</p>
-
-        <div class="callout">
-            <strong>Expansion inquiries:</strong> If your organization is active in a state not currently in our footprint, reach out to discuss how Second Look Alliance research might support your work.
-        </div>
+<!-- How it works -->
+<section id="how-it-works">
+  <div class="container">
+    <p class="section-label">Process</p>
+    <h2 class="section-title">Field to decision in days, not weeks</h2>
+    <p class="section-sub">The pipeline runs automatically. Partners see results in the portal as soon as the fit completes.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Survey fields</h3>
+        <p>Issue-advocacy questions deployed via Alchemer to a representative sample in the target state or district.</p>
+      </div>
+      <div class="step">
+        <h3>Engine fits</h3>
+        <p>The VIP engine runs 4-chain NUTS sampling, raking to ACS margins, and per-segment MrP — producing MrP-adjusted support estimates for every question.</p>
+      </div>
+      <div class="step">
+        <h3>Portal delivers</h3>
+        <p>Partners log into the ActInt portal to review topline MrP results, regression findings, and audience breakdowns with credible intervals.</p>
+      </div>
+      <div class="step">
+        <h3>Campaign activates</h3>
+        <p>VIP segments export as targeting briefs. MediaMaker turns survey evidence into draft scripts. Media buyer executes directly from the data.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Partners -->
-<section id="partners">
-    <div class="container">
-        <h2 class="section-title">Supporting Organizations Dedicated to Public Safety</h2>
-        <p class="section-subtitle">Criminal justice reform and public safety are not competing goals. The data shows that the public agrees &mdash; and Second Look Alliance exists to help organizations make that case with evidence.</p>
-
-        <p>We partner with advocacy organizations, legal aid groups, reentry programs, and policy research institutions that share a commitment to a justice system that is fair, effective, and accountable. We do not do their advocacy work for them. We give them the tools to do it better.</p>
-
-        <h3>What We Offer Partners</h3>
-        <p>Partnering organizations gain access to state-level public opinion data that is typically unavailable at this level of precision outside of well-funded statewide campaigns. Our research tells partners not just what the public supports, but which populations hold those views, how firmly, and where persuadable audiences are likely to be found.</p>
-        <p>We also provide context. A single data point is rarely enough. Our analysis places findings within the broader landscape of opinion across regions, demographic groups, and political identities &mdash; helping partners understand the full terrain they are navigating.</p>
-
-        <h3>Who We Work With</h3>
-        <p>Our partner organizations work across the full spectrum of public safety and criminal justice: legal defense organizations ensuring the right to counsel, victim advocacy groups focused on justice for survivors, reentry programs supporting successful return to community, policy institutes examining sentencing and corrections reform, and community organizations working on the root causes of crime.</p>
-        <p>What unites them is a commitment to an evidence-based approach and a belief that public opinion, properly understood, is an asset rather than an obstacle.</p>
-
-        <div class="callout">
-            <strong>We are nonpartisan and non-advocacy.</strong> Our research is available to any organization working in good faith toward a more just and effective public safety system, regardless of political affiliation or ideological starting point.
-        </div>
-    </div>
-</section>
-
-<!-- Findings -->
-<section id="findings" class="bg-cream">
-    <div class="container">
-        <h2 class="section-title">What the Data Shows</h2>
-        <p class="section-subtitle">Our surveys consistently find that Americans hold more thoughtful and nuanced views on criminal justice than the political debate often suggests.</p>
-        <p>The findings below reflect aggregate patterns across our active research states. They do not represent any single survey and should be read as indicative rather than definitive &mdash; the full data, methodology, and state-by-state breakdowns are available to partner organizations and researchers upon request.</p>
-
-        <!-- Redemption -->
-        <div class="finding-block">
-            <h3>Second Chances and Redemption</h3>
-            <p>One of the most consistent findings in our research is broad public support for the idea that people can change. Across all six of our active research states, majority support exists for policies that allow individuals who have demonstrated genuine change over time to be considered for sentence review or early release.</p>
-            <p>This support is notably cross-partisan. While the language used to describe second-chance policies matters &mdash; and different framings activate different audiences &mdash; the underlying belief that incarceration should serve a constructive purpose is widely shared even among respondents who otherwise express skepticism about criminal justice reform.</p>
-            <div class="key-finding">
-                <strong>Key finding:</strong> Majorities across party lines agree that a person who committed a crime years ago should not automatically be defined by that act for the rest of their life &mdash; provided they have taken genuine steps toward change.
-            </div>
-            <p>Support is highest for policies affecting older incarcerated individuals who pose limited risk to public safety. It is more conditional &mdash; though still present &mdash; for younger individuals and those convicted of more serious offenses.</p>
-            <p>Expungement and record-clearing for lower-level offenses also commands significant public support, particularly when the case is made in terms of economic reintegration and community stability rather than leniency.</p>
-        </div>
-
-        <!-- DV -->
-        <div class="finding-block">
-            <h3>Domestic Violence and the Circumstances of Crime</h3>
-            <p>Our research on domestic violence and crime circumstances addresses a fundamental question of justice: when someone commits a crime as a direct result of being abused, trafficked, or coerced, should the legal system take those circumstances into account?</p>
-            <p>The answer from the public is clear and consistent. Across all of our research states, large majorities of respondents &mdash; including those who generally oppose criminal justice reform &mdash; agree that the circumstances surrounding a crime are relevant to how it should be judged.</p>
-            <div class="key-finding">
-                <strong>Key finding:</strong> Support for considering domestic violence victimization, trafficking, and coercion as mitigating factors in sentencing is among the highest we measure &mdash; consistently above 60 percent even among the most skeptical audiences, and significantly higher among the general population.
-            </div>
-            <p>This finding holds across demographic and political groups. Respondents who describe themselves as strong supporters of law enforcement and tough sentencing are nearly as likely as reform-leaning respondents to agree that a person who killed an abusive partner after years of documented violence should be treated differently than someone who committed premeditated homicide.</p>
-            <p>The framing matters. When DV-related policy questions are presented in terms of the court system failing victims &mdash; rather than in terms of leniency for offenders &mdash; support increases substantially. This suggests that victim-centered language is not just more accurate; it is more persuasive.</p>
-        </div>
-
-        <!-- Socioeconomic -->
-        <div class="finding-block">
-            <h3>Socioeconomic Disparity and Access to Legal Representation</h3>
-            <p>Americans express strong concern about economic inequality in the justice system &mdash; and that concern crosses political lines in ways that may surprise those who follow the public debate.</p>
-
-            <div class="stat-grid">
-                <div class="stat-card">
-                    <div class="stat-value">80%+</div>
-                    <div class="stat-label">Agree that people with more money receive better legal outcomes &mdash; across party lines</div>
-                </div>
-            </div>
-
-            <p>Public defender funding is one of the most broadly supported policy positions in our research. Framed as a matter of constitutional rights &mdash; the right to competent legal representation &mdash; it attracts support from respondents across the political spectrum who might otherwise be skeptical of reform.</p>
-            <div class="key-finding">
-                <strong>Key finding:</strong> Adequate funding for public defenders is among the highest-support policy positions we measure, with strong bipartisan backing. It is also one of the few policy areas where support holds up robustly even among respondents who oppose broader criminal justice reform.
-            </div>
-            <p>Fines and fees reform also draws significant public support. Respondents across the political spectrum are receptive to the argument that financial penalties that fall hardest on those who cannot pay amount to a form of double punishment &mdash; serving a jail sentence and then being unable to escape debt and consequences for years afterward.</p>
-            <p>Together, these findings suggest that economic fairness is a powerful and underutilized frame in the criminal justice conversation &mdash; one that connects with audiences who may not respond to other reform arguments.</p>
-        </div>
-
-        <!-- Proportionality -->
-        <div class="finding-block">
-            <h3>Proportional Punishment and Judicial Discretion</h3>
-            <p>Criminal sentences should fit the crime. This is not a controversial idea &mdash; it is one of the foundational principles of American jurisprudence. What our research reveals is that the public increasingly believes the current system fails to live up to it.</p>
-            <p>Large majorities of respondents agree that sentencing in the United States is often disproportionate &mdash; that mandatory minimums and rigid sentencing structures can produce outcomes that do not reflect the individual circumstances of a case, and that judges should have more latitude to ensure punishments fit the facts.</p>
-            <div class="key-finding">
-                <strong>Key finding:</strong> Majorities across the political spectrum support giving judges more discretion to tailor sentences to individual cases &mdash; a finding that holds even among respondents who favor strict sentencing in general.
-            </div>
-            <p>Sentence review &mdash; the idea that sentences handed down years or decades ago should be re-examined in light of current standards or changed circumstances &mdash; draws substantial support, particularly when framed around proportionality and the efficient use of public resources.</p>
-            <p>Taken together, these findings point toward a public that is more open to nuanced, individualized approaches to sentencing than the political conversation often assumes &mdash; and that sees judicial discretion not as a loophole, but as a safeguard against injustice.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title">Work With Us</h2>
-        <p class="section-subtitle">Second Look Alliance research is available to partner organizations, funders, journalists, and policymakers committed to evidence-based criminal justice policy.</p>
-        <p>If your organization works on any of the policy areas covered by our research &mdash; or if you are working in a state where you believe better public opinion data could make a difference &mdash; we want to talk.</p>
-        <p>We also welcome inquiries from researchers, journalists, and policy analysts who want to understand the data in greater depth. We are committed to transparency about our methodology and findings.</p>
-        <a href="mailto:info@secondlookalliance.org" class="contact-link">Get in Touch</a>
-    </div>
+<!-- Portal CTA -->
+<section class="portal-cta">
+  <p class="section-label">Partner access</p>
+  <h2 class="section-title">Your survey intelligence is ready</h2>
+  <p>Log into the ActInt partner portal to review your MrP results, build media segments, and generate messaging scripts.</p>
+  <a href="https://actint-portal-production.up.railway.app/login" class="btn-primary">Sign in to the portal →</a>
 </section>
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2026 Second Look Alliance. All rights reserved.</p>
-    <p><a href="/privacy.html">Privacy Policy</a></p>
+  <div class="footer-inner">
+    <span class="footer-logo">Actionable Intel LLC</span>
+    <nav class="footer-links">
+      <a href="mailto:pres@actionableintel.org">Contact</a>
+      <a href="/actionable-intel-site/privacy.html">Privacy</a>
+    </nav>
+  </div>
 </footer>
 
 </body>
